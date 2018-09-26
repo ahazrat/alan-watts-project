@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Button from '@material-ui/core/Button'
+
 import Post from './components/Post'
+
+import './App.css';
+import logo from './logo.svg';
 
 class App extends Component {
   render() {
@@ -19,12 +22,16 @@ class App extends Component {
           and serves as a meaningful way for people to connect<br />
           people interested in curating and posting the content<br />
         </p>
+        <Button variant='contained' color='primary'>
+          Create new Post
+        </Button>
         <ul style={{textAlign: 'left'}}>
           <li>create components folder</li>
           <li>Create Singular Post</li>
           <li>Create Posts Display</li>
         </ul>
-        <Post />
+        <Post id='1' />
+        <Post id='2' />
       </div>
     );
   }

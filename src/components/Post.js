@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
 
 class Post extends Component {
     render() {
@@ -7,9 +8,12 @@ class Post extends Component {
             borderRadius: '5px',
         }
         return <div style={style}>
-            <h3>Post Title</h3>
+            <h3>{this.props.id}: Post Title</h3>
             <p>Post Author</p>
             <p>Post Text</p>
+            <Button variant='contained' color='primary'>
+              Edit Post
+            </Button>
         </div>
     }
 }
