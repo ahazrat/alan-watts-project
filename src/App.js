@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Post from './components/Post'
 
 class App extends Component {
   render() {
@@ -18,11 +19,12 @@ class App extends Component {
           and serves as a meaningful way for people to connect<br />
           people interested in curating and posting the content<br />
         </p>
-        <ul style={{textAlign: 'center'}}>
-          <li>Fix logo</li>
+        <ul style={{textAlign: 'left'}}>
+          <li>create components folder</li>
           <li>Create Singular Post</li>
           <li>Create Posts Display</li>
         </ul>
+        <Post />
       </div>
     );
   }
