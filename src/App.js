@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
 import Post from './components/Post'
 
-import './App.css';
-import logo from './logo.svg';
+import './App.css'
+import logo from './logo.svg'
 
 class App extends Component {
+  
   render() {
+    
+    const data = [1,2,3,4]
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -30,11 +35,17 @@ class App extends Component {
           <li>Create Singular Post</li>
           <li>Create Posts Display</li>
         </ul>
-        <Post id='1' />
-        <Post id='2' />
+        <Grid container spacing={24}>
+          <Post id='1' />
+          <Post id='2' />
+          <Post id='3' />
+          <Post id='4' />
+        </Grid>
       </div>
-    );
+    )
+    
   }
+  
 }
 
-export default App;
+export default App
