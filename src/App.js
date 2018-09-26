@@ -12,7 +12,7 @@ class App extends Component {
         </header>
         <p className="App-intro">
           the vision is a website that is a constantly updated resource<br />
-          for material by and relating to Alan's work<br />
+          for material by and relating to the work of Alan Watts<br />
           <code>Derivative writings, brainpickings articles, dance, music, and art videos</code> using his words<br />
           Tons of resources out there to pool them in one place<br />
           and serves as a meaningful way for people to connect<br />
