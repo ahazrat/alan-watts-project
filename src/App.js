@@ -18,6 +18,10 @@ class App extends Component {
           and serves as a meaningful way for people to connect<br />
           people interested in curating and posting the content<br />
         </p>
+        <ul>
+          <li>Create Singular Post</li>
+          <li>Create Posts Display</li>
+        </ul>
       </div>
     );
   }
