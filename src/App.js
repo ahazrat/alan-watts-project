@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Intro from './components/Intro'
 import Posts from './components/Posts'
 
 import './App.css'
@@ -21,16 +22,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Alan Watts Project</h1>
         </header>
-        <p className="App-intro">
-          the vision is a website that is a constantly updated resource<br />
-          for material by and relating to the work of Alan Watts<br />
-          <code>Derivative writings, brainpickings articles, dance, music, and art videos</code> using his words<br />
-          Tons of resources out there to pool them in one place<br />
-          and serves as a meaningful way for people to connect<br />
-          people interested in curating and posting the content<br />
-        </p>
-        <ul style={{textAlign: 'left'}}>
-        </ul>
+        <Intro />
         <Posts data={data} />
       </div>
     )
