@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-
-import Post from './components/Post'
+import Posts from './components/Posts'
 
 import './App.css'
 import logo from './logo.svg'
@@ -11,7 +8,12 @@ class App extends Component {
   
   render() {
     
-    const data = [1,2,3,4]
+    const data = [
+      'connect data to generate posts',
+      'get alan watts pictures',
+      'store pictures in s3',
+      'access pictures by reference',
+    ]
     
     return (
       <div className="App">
@@ -27,20 +29,9 @@ class App extends Component {
           and serves as a meaningful way for people to connect<br />
           people interested in curating and posting the content<br />
         </p>
-        <Button variant='contained' color='primary'>
-          Create new Post
-        </Button>
         <ul style={{textAlign: 'left'}}>
-          <li>create components folder</li>
-          <li>Create Singular Post</li>
-          <li>Create Posts Display</li>
         </ul>
-        <Grid container spacing={24}>
-          <Post id='1' />
-          <Post id='2' />
-          <Post id='3' />
-          <Post id='4' />
-        </Grid>
+        <Posts data={data} />
       </div>
     )
     
@@ -49,3 +40,6 @@ class App extends Component {
 }
 
 export default App
+
+// <Grid /> has breakpoints of ['xs', 'sm', 'md', 'lg', 'xl']
+// Spacing can be 8, 16, 24, 32 or 40dp wide
