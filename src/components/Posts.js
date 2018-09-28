@@ -7,13 +7,13 @@ import Post from './Post'
 class Posts extends Component {
     render() {
 
-        const posts = this.props.data.map((p, i) => <Post key={i} id={i} title={p} />)
+        const pic_posts = this.props.alan_pics.map((image_url, i) => <Post key={i} image_url={image_url} />)
 
         return <div style={{backgroundColor: 'grey'}}>
             <br />
-            <h1>These are the posts</h1>
+            <h1>Recent Posts</h1>
             <Grid container spacing={16}>
-                {posts}
+                {pic_posts}
             </Grid>
             <br />
             <Button variant='contained' color='primary'>
