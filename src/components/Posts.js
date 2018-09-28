@@ -7,7 +7,7 @@ import Post from './Post'
 class Posts extends Component {
     render() {
 
-        const pic_posts = this.props.alan_pics.map((image_url, i) => <Post key={i} image_url={image_url} />)
+        const pic_posts = this.props.posts.map((post, i) => <Post key={i} post={post} />)
 
         return <div style={{backgroundColor: 'grey'}}>
             <br />

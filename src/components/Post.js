@@ -52,16 +52,15 @@ function Post(props) {
                     component="img"
                     className={classes.media}
                     height="140"
-                    image={props.image_url}
-                    title="Contemplative Reptile"
+                    image={props.post.img}
+                    title={props.post.title}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="headline" component="h2">
-                    Lizard
+                        {props.post.title}
                     </Typography>
                     <Typography component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
+                        {props.post.text}
                     </Typography>
                 </CardContent>
                 </CardActionArea>

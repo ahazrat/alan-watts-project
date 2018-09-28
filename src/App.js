@@ -14,11 +14,27 @@ class App extends Component {
       'fix cards to look good',
     ]
 
-    const alan_pics = [
-      'https://i.imgur.com/snV3aGU.png',
-      'https://i.imgur.com/sktvznU.png',
-      'https://i.imgur.com/Aqg5LQy.png',
-      'https://i.imgur.com/laYPizP.jpg',
+    const posts = [
+      {
+        title: 'Who Are You?',
+        text: 'Trying to define yourself is like trying to bite your own teeth',
+        img: 'https://i.imgur.com/snV3aGU.png'
+      },
+      {
+        title: 'Trust The Water',
+        text: 'To have faith is to trust yourself to the water. When you swim you dont grab hold of the water, because if you do you will sink and drown. Instead you relax, and float.',
+        img: 'https://i.imgur.com/sktvznU.png'
+      },
+      {
+        title: 'Where Is God?',
+        text: 'You dont look out there for God, something in the sky, you look in you.',
+        img: 'https://i.imgur.com/Aqg5LQy.png'
+      },
+      {
+        title: 'Living Now',
+        text: 'No work or love will flourish out of guilt, fear, or hollowness of heart, just as no valid plans for the future can be made by those who have no capacity for living now.',
+        img: 'https://i.imgur.com/laYPizP.jpg'
+      },
     ]
     
     return (
@@ -26,17 +42,9 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Alan Watts Project</h1>
-          <p style={{margin: '0'}}>
-                the vision is a website that is a constantly updated resource<br />
-                for material by and relating to the work of Alan Watts<br />
-                <code>Derivative writings, brainpickings articles, dance, music, and art videos</code> using his words<br />
-                Tons of resources out there to pool them in one place<br />
-                and serves as a meaningful way for people to connect<br />
-                people interested in curating and posting the content<br />
-            </p>
         </header>
         <Intro />
-        <Posts alan_pics={alan_pics} />
+        <Posts posts={posts} />
       </div>
     )
     
