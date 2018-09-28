@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from './components/Header'
 import Intro from './components/Intro'
 import Posts from './components/Posts'
 
@@ -39,10 +40,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Alan Watts Project</h1>
-        </header>
+        <Header />
         <Intro />
         <Posts posts={posts} />
       </div>
