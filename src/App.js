@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AppBarAWP from './components/AppBarAWP'
 import Header from './components/Header'
 import Intro from './components/Intro'
 import Posts from './components/Posts'
@@ -35,6 +36,7 @@ class App extends Component {
     
     return (
       <div className="App">
+        <AppBarAWP />
         <Header />
         <Intro />
         <Posts posts={posts} />
