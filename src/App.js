@@ -2,18 +2,13 @@ import React, { Component } from 'react'
 import Header from './components/Header'
 import Intro from './components/Intro'
 import Posts from './components/Posts'
+import NewPost from './components/NewPost'
 
 import './App.css'
-import logo from './logo.svg'
 
 class App extends Component {
   
   render() {
-    
-    const todo = [
-      'get alan watts pictures',
-      'fix cards to look good',
-    ]
 
     const posts = [
       {
