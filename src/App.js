@@ -51,3 +51,9 @@ export default App
 
 // <Grid /> has breakpoints of ['xs', 'sm', 'md', 'lg', 'xl']
 // Spacing can be 8, 16, 24, 32 or 40dp wide
+
+// cognito
+// alan-watts-project-react
+// App client id: 317774393easuuhiq6el7bnoq
+// App client secret: 1mqkgkf0pd88ssv4c056dk4cn7utjugmukkqbs6dp0pb4mjmdtch
+// 

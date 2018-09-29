@@ -3,7 +3,7 @@ import yin_yang from '../svg/yin_yang.svg'
 
 function Header(props) {
     return (
-        <header className="App-header">
+        <header className="App-header" style={{ marginTop: '64px' }}>
             <img src={yin_yang} className="App-logo" alt="logo" />
             <h1 className="App-title">Alan Watts Project</h1>
         </header>
