@@ -26,7 +26,7 @@ const styles = theme => ({
 });
 
 class NewPost extends React.Component {
-
+    
     render() {
         const { classes } = this.props;
         return (

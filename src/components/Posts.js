@@ -24,7 +24,7 @@ class Posts extends Component {
 
     render() {
 
-        const { classes } = this.props;
+        // const { classes } = this.props;
         const pic_posts = this.props.posts.map((post, i) => <Post key={i} post={post} />)
 
         return <div style={{backgroundColor: 'grey'}}>
