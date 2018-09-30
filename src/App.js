@@ -1,12 +1,9 @@
+import React, { Component } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { Config, CognitoIdentityCredentials } from 'aws-sdk'
 import { CognitoUserPool, CognitoUserAttribute } from 'amazon-cognito-identity-js'
-import React, { Component } from 'react'
 import AppBarAWP from './components/AppBarAWP'
-import Header from './components/Header'
-import Intro from './components/Intro'
-import Posts from './components/Posts'
-import Signup from './pages/Signup'
-import NewPost from './components/NewPost'
+import Home from './pages/Home'
 import './App.css'
 
 Config.region = 'us-east-2'
@@ -40,7 +37,6 @@ class App extends Component {
     email: '',
     password: '',
     showBadEmailMsg: false,
-    signup: false,
   }
 
   componentDidMount() {
@@ -91,51 +87,17 @@ class App extends Component {
   
   render() {
 
-    const posts = [
-      {
-        title: 'Who Are You?',
-        text: 'Trying to define yourself is like trying to bite your own teeth',
-        img: 'https://i.imgur.com/snV3aGU.png'
-      },
-      {
-        title: 'Trust The Water',
-        text: 'To have faith is to trust yourself to the water. When you swim you dont grab hold of the water, because if you do you will sink and drown. Instead you relax, and float.',
-        img: 'https://i.imgur.com/sktvznU.png'
-      },
-      {
-        title: 'Living Now',
-        text: 'No work or love will flourish out of guilt, fear, or hollowness of heart, just as no valid plans for the future can be made by those who have no capacity for living now.',
-        img: 'https://i.imgur.com/laYPizP.jpg'
-      },
-    ]
-    
-    if (this.state.signup) {
-      return <Signup />
-    }
-
     return (
-      <div className="App">
-        <AppBarAWP
-          auth={this.state.auth}
-          handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout}
-          signup={() => {
-            this.setState({ signup: true })
-          }}
-        />
-        <Header />
-        <Intro />
-        <Posts posts={posts} />
+      <BrowserRouter>
         <div>
-          {this.state.showBadEmailMsg && <h3>Bad Email Address</h3>}
-          <form onSubmit={this.handleSubmit}>
-            <input type='text' value={this.state.email} placeholder='Email' onChange={this.handleEmailChange} />
-            <input type='password' value={this.state.password} placeholder='Password' onChange={this.handlePasswordChange} />
-            <input type='submit' />
-          </form>
+          <AppBarAWP
+            auth={this.state.auth}
+            handleLogin={this.handleLogin}
+            handleLogout={this.handleLogout}
+          />
+          <Home />
         </div>
-        <NewPost open={false} />
-      </div>
+      </BrowserRouter>
     )
     
   }
@@ -146,6 +108,3 @@ export default App
 
 // <Grid /> has breakpoints of ['xs', 'sm', 'md', 'lg', 'xl']
 // Spacing can be 8, 16, 24, 32 or 40dp wide
-
-// asifhazrat@gmail.com
-// Password1

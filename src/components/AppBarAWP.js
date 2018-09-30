@@ -40,11 +40,6 @@ class AppBarAWP extends React.Component {
 
         const { classes } = this.props
 
-        const signedOutButtons = [
-            <Button color="inherit" onClick={this.props.signup}>Signup</Button>,
-            <Button color="inherit" onClick={this.props.handleLogin}>Login</Button>
-        ]
-
         return (
             <div className={classes.root}>
                 <AppBar>
@@ -85,7 +80,10 @@ class AppBarAWP extends React.Component {
                                 </Menu>
                             </div>
                         )}
-                        {signedOutButtons}
+                        <div>
+                            <Button color="inherit" onClick={this.props.signup}>Signup</Button>
+                            <Button color="inherit" onClick={this.props.handleLogin}>Login</Button>
+                        </div>
                     </Toolbar>
                 </AppBar>
             </div>
