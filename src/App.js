@@ -5,17 +5,18 @@ import AppBarAWP from './components/AppBarAWP'
 import Header from './components/Header'
 import Intro from './components/Intro'
 import Posts from './components/Posts'
+import Signup from './pages/Signup'
 import NewPost from './components/NewPost'
 import './App.css'
 
 Config.region = 'us-east-2'
 Config.credentials = new CognitoIdentityCredentials({
-  IdentityPoolId: 'us-east-2_pQapogcG8'
+  IdentityPoolId: 'us-east-2_jR8FsKzhC'
 })
 
 const userPool = new CognitoUserPool({
-  UserPoolId : 'us-east-2_pQapogcG8',
-  ClientId : '774nr4k0a1v0okcpp855gp5ch4'
+  UserPoolId : 'us-east-2_jR8FsKzhC',
+  ClientId : '6cd2s533h1jbchv0jlh8euhqsk'
 })
 
 // var userData = {
@@ -27,14 +28,35 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      email: '',
-      password: '',
-      showBadEmailMsg: false
-    }
+    this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  state = {
+    auth: null,
+    email: '',
+    password: '',
+    showBadEmailMsg: false,
+    signup: false,
+  }
+
+  componentDidMount() {
+    fetch('https://api.github.com/gists')
+      .then(res => res.json())
+      .then(gists => {
+        this.setState({ gists })
+      })
+  }
+
+  handleLogin() {
+    this.setState({ auth: true })
+  }
+
+  handleLogout() {
+    this.setState({ auth: null })
   }
 
   handleEmailChange(e) {
@@ -87,9 +109,20 @@ class App extends Component {
       },
     ]
     
+    if (this.state.signup) {
+      return <Signup />
+    }
+
     return (
       <div className="App">
-        <AppBarAWP />
+        <AppBarAWP
+          auth={this.state.auth}
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout}
+          signup={() => {
+            this.setState({ signup: true })
+          }}
+        />
         <Header />
         <Intro />
         <Posts posts={posts} />

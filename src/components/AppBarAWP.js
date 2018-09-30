@@ -1,52 +1,50 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import MenuItem from '@material-ui/core/MenuItem'
+import Menu from '@material-ui/core/Menu'
 
 const styles = {
-    root: {
-      flexGrow: 1,
-    },
-    grow: {
-        flexGrow: 1,
-      },
-      menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-      },
-  };
+    root: {}
+  }
 
 // function AppBarAWP(props) {
 class AppBarAWP extends React.Component {
+
     state = {
         auth: true,
         anchorEl: null,
     }
+
     handleMenu = event => {
         this.setState({ anchorEl: event.currentTarget })
     }
+
     handleClose = () => {
         this.setState({ anchorEl: null })
     }
+
     logout = () => {
         this.handleClose()
-        this.setState({ auth: false })
+        this.props.handleLogout()
     }
-    login = () => {
-        this.setState({ auth: true })
-    }
+
     render() {
+
         const { classes } = this.props
-        const { auth, anchorEl } = this.state
-        const open = Boolean(anchorEl)
+
+        const signedOutButtons = [
+            <Button color="inherit" onClick={this.props.signup}>Signup</Button>,
+            <Button color="inherit" onClick={this.props.handleLogin}>Login</Button>
+        ]
+
         return (
             <div className={classes.root}>
                 <AppBar>
@@ -57,10 +55,10 @@ class AppBarAWP extends React.Component {
                         <Typography variant="title" color="inherit" className={classes.grow}>
                             News
                         </Typography>
-                        {auth && (
+                        {this.props.auth && (
                             <div>
                                 <IconButton
-                                    aria-owns={open ? 'menu-appbar' : null}
+                                    aria-owns={Boolean(this.state.anchorEl) ? 'menu-appbar' : null}
                                     aria-haspopup="true"
                                     onClick={this.handleMenu}
                                     color="inherit"
@@ -69,7 +67,7 @@ class AppBarAWP extends React.Component {
                                 </IconButton>
                                 <Menu
                                     id="menu-appbar"
-                                    anchorEl={anchorEl}
+                                    anchorEl={this.state.anchorEl}
                                     anchorOrigin={{
                                         vertical: 'top',
                                         horizontal: 'right',
@@ -78,7 +76,7 @@ class AppBarAWP extends React.Component {
                                         vertical: 'top',
                                         horizontal: 'right',
                                     }}
-                                    open={open}
+                                    open={Boolean(this.state.anchorEl)}
                                     onClose={this.handleClose}
                                 >
                                     <MenuItem onClick={this.handleClose}>Profile</MenuItem>
@@ -87,16 +85,18 @@ class AppBarAWP extends React.Component {
                                 </Menu>
                             </div>
                         )}
-                        {!auth && (<Button color="inherit" onClick={this.login}>Login</Button>)}
+                        {signedOutButtons}
                     </Toolbar>
                 </AppBar>
             </div>
-        );
+        )
+
     }
+
 }
 
 AppBarAWP.propTypes = {
     classes: PropTypes.object.isRequired,
-  };
+}
   
-  export default withStyles(styles)(AppBarAWP);  
+export default withStyles(styles)(AppBarAWP)
